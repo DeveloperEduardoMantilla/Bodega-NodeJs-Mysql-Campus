@@ -1,6 +1,8 @@
 import dotenv from "dotenv";
 import mysql from 'mysql2';
 import {Router} from "express";
+import proxyBodega from "../middleware/proxyBodega.js";
+
 const storageCampus = Router();
 
 dotenv.config();
@@ -21,7 +23,7 @@ storageCampus.get("/", (req,res)=>{
     )
 })
 
-storageCampus.post("/", (req, res)=>{
+storageCampus.post("/", proxyBodega, (req, res)=>{
     let {nombre, id_responsable, estado, created_by, created_at} = req.query;
 
     const sql =`INSERT INTO bodegas (nombre, id_responsable, estado, created_by) VALUES
