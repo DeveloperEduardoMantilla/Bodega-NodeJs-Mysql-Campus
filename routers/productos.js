@@ -38,7 +38,7 @@ GROUP BY p.nombre ORDER BY Total DESC`,
 })
 
 storageProductos.post("/",(req,res)=>{
-    let {nombre, descripcion, estado, created_by, created_at, cantidad} = req.query;
+    let {nombre, descripcion, estado, created_by, created_at, cantidad} = req.body;
     const sql = `INSERT INTO productos(nombre, descripcion, estado, created_by, created_at) VALUES (?,?,?,?,?)`;
     const data = [nombre, descripcion, estado, created_by, created_at];
     con.query(sql,data, (err, result)=>{
