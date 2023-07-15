@@ -13,6 +13,18 @@ storageProductos.use((req,res,next)=>{
     next();
 })
 
+storageProductos.get("/total", (req,res)=>{
+    con.query(
+        /*sql*/`SELECT id , nombre, descripcion, estado, created_by,
+            (SELECT CAST(IFNULL(SUM(cantidad),0) AS DOUBLE) FROM inventarios WHERE id_producto = productos.id ) as Total
+            FROM productos
+            ORDER BY Total DESC`,
+        (err,data,fil)=>{
+            res.send(JSON.parse(JSON.stringify(data)));
+        }
+    )
+})
+
 storageProductos.get("/",(req,res)=>{
     con.query(
         /*sql*/`SELECT p.nombre AS Nombre, SUM(i.cantidad) AS Total 

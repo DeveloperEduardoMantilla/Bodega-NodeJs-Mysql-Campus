@@ -14,6 +14,7 @@ storageCampus.use((req,res,next)=>{
     next();
 })
 
+
 storageCampus.get("/", (req,res)=>{
     con.query(
         /*sql*/`SELECT * FROM bodegas ORDER BY nombre ASC`,
@@ -22,6 +23,10 @@ storageCampus.get("/", (req,res)=>{
         }
     )
 })
+
+
+
+
 
 storageCampus.post("/", proxyBodega, (req, res)=>{
     let {nombre, id_responsable, estado, created_by, created_at} = req.body;
