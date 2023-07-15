@@ -8,7 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Expose, Transform } from "class-transformer";
-export class user {
+class Bodega {
     constructor(nombre, id_responsable, estado, created_by) {
         this.NOMBRE = nombre;
         this.ID_RESPONSABLE = id_responsable;
@@ -30,7 +30,7 @@ __decorate([
         toClassOnly: true
     }),
     __metadata("design:type", String)
-], user.prototype, "NOMBRE", void 0);
+], Bodega.prototype, "NOMBRE", void 0);
 __decorate([
     Expose({ name: "id_responsable" }),
     Transform(({ value }) => {
@@ -40,7 +40,7 @@ __decorate([
             throw { status: 400, message: `EL id no cumple con los parametros establecidos` };
     }, { toClassOnly: true }),
     __metadata("design:type", Number)
-], user.prototype, "ID_RESPONSABLE", void 0);
+], Bodega.prototype, "ID_RESPONSABLE", void 0);
 __decorate([
     Expose({ name: "estado" }),
     Transform(({ value }) => {
@@ -50,7 +50,7 @@ __decorate([
             throw { status: 400, message: `EL estado no cumple con los parametros establecidos` };
     }, { toClassOnly: true }),
     __metadata("design:type", Number)
-], user.prototype, "ESTADO", void 0);
+], Bodega.prototype, "ESTADO", void 0);
 __decorate([
     Expose({ name: "created_by" }),
     Transform(({ value }) => {
@@ -60,4 +60,5 @@ __decorate([
             throw { status: 400, message: `EL id del creador no cumple con los parametros establecidos` };
     }, { toClassOnly: true }),
     __metadata("design:type", Number)
-], user.prototype, "CREATED_BY", void 0);
+], Bodega.prototype, "CREATED_BY", void 0);
+export default Bodega;

@@ -1,7 +1,7 @@
 import express from 'express';
 import 'reflect-metadata';
 import {plainToClass} from 'class-transformer';
-import {Bodega} from "../controller/bodega.js";
+import Bodega from "../controller/bodega.js";
 
 const proxyBodega = express();
 

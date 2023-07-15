@@ -1,6 +1,6 @@
 import {Expose, Type, Transform} from "class-transformer";
 
-export class user{
+class Bodega{
     @Expose({name:"nombre"})
     @Transform(({value})=>{
     if(/^[a-z A-Z]+$/.test(value)) return value; else throw {status: 400, message: `El nombre no cumple con el parametro establecido`};},{
@@ -42,3 +42,5 @@ export class user{
         return `Nombre: ${this.NOMBRE}`;
     }
 }
+
+export default Bodega;
