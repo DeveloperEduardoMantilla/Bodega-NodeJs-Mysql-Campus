@@ -5,7 +5,7 @@ import Bodega from "../controller/bodega.js";
 
 const proxyBodega = express();
 
-proxyBodega.use((req,user,next)=>{
+proxyBodega.use((req,res,next)=>{
     try{
         let data = plainToClass(Bodega, req.body, {excludeExtraneousValues: true});
         req.body = JSON.parse(JSON.stringify(data));
